@@ -5,12 +5,8 @@ class SoundsController < ApplicationController
 
   def show
     @sound = Sound.find(params[:id])
-  end
-
-  def destroy
-    @sound = Sound.find(params[:id])
-    @sound.destroy
-    redirect_to :index
+    @comments = @sound.comments
+    @comment = @sound.comments.new
   end
 
   def new
@@ -21,14 +17,20 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
   end
 
+  def create
+    @sound
+  end
+
   def update
     @sound = Sound.find(params[:id])
     @sound.update(sound_params)
     redirect_to @sound
   end
 
-  def create
-    @sound
+  def destroy
+    @sound = Sound.find(params[:id])
+    @sound.destroy
+    redirect_to :index
   end
 
   private

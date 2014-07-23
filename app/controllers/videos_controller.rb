@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find_by(params[:id])
+    @video = Video.find(params[:id])
     @comments = @video.comments
     @comment = @video.comments.new
   end
@@ -13,14 +13,14 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
+  def edit
+    @video = Video.find(params[:id])
+  end
+
   def create
     video = Video.new(video_params)
     video.save
     redirect_to root_path
-  end
-
-  def edit
-    @video = Video.find(params[:id])
   end
 
   def update

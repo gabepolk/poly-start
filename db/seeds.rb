@@ -26,7 +26,7 @@ Video.create([
   {
     title: "Pacific Rim",
     description: "Giant robots fighting giant sea monsters",
-    youtube_id: "SSNU6t0pmkw",
+    youtube_id: "5guMumPFBag",
     user_id: 2
   }
   ])
