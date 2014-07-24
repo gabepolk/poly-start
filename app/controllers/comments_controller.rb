@@ -1,14 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    # binding.pry
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to @comment.video
+      redirect_to 'http://google.com/'
     end
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:message, :video_id)
+    params.require(:comment).permit(:message, :commentable_id, :commentable_type)
   end
 end
