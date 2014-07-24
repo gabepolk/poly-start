@@ -18,7 +18,9 @@ class SoundsController < ApplicationController
   end
 
   def create
-    @sound
+    @sound = Sound.find(params[:id])
+    @sound.update(sound_params)
+    redirect_to @sound
   end
 
   def update
